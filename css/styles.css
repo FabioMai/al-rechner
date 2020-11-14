@@ -145,7 +145,6 @@ a.white {
 
 .btn-solid-reg:hover {
   border: 0.125rem solid #ef4a73;
-  background-color: transparent;
   color: #ef4a73;
   text-decoration: none;
 }
@@ -1123,8 +1122,15 @@ input[type="checkbox"] {
 
 /* Fixed Footer*/
 #fixed-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  width: 100%;
   display: flex;
   text-align: center;
+  justify-content: center;
+  border-top: 3px solid #309168;
 }
 
 /*****************************/

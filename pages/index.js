@@ -1,5 +1,6 @@
 import Layout from "../components/layout";
 import Card from "../components/card";
+import { useState } from "react";
 
 import { getSortedPostsData } from "../lib/posts";
 import { getCards } from "../lib/cards";
@@ -14,8 +15,34 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
+  const optArray = [
+    "Vögel",
+    "Säugetiere",
+    "Reptilien",
+    "Amphibien",
+    "Insekten",
+    "Bestäuber",
+    "Wildpflanzen Acker",
+    "Wildpflanzen Grünland",
+    "Klimaschutz",
+    "Wasserschutz",
+  ];
+  const [state, setState] = useState({
+    aal1: "0",
+    aal2: "1",
+    mal1: "",
+    mal2: "",
+    optimierung: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
   const cards = getCards();
-  console.log(cards);
+
   return (
     <Layout allPostsData={allPostsData}>
       {/* Header */}
@@ -136,7 +163,7 @@ export default function Home({ allPostsData }) {
       </header>
       {/* end of header */}
 
-      {/* Approval */}
+      {/* Intro */}
       <div id="approval" class="basic-1">
         <div class="container">
           <div class="row">
@@ -222,10 +249,12 @@ export default function Home({ allPostsData }) {
             <div class="col-lg-12 d-flex flex-wrap">
               {cards.map((card) => (
                 <Card
+                  value={state[card.name]}
                   category={card.category}
                   heading={card.heading}
                   p={card.p}
                   id={cards.indexOf(card)}
+                  handleChange={handleChange}
                 ></Card>
               ))}
             </div>
@@ -271,14 +300,12 @@ export default function Home({ allPostsData }) {
       {/* end of loan options */}
 
       <div id="fixed-footer">
-        <div class="card">
-          <h1>5%</h1>
-          <h4>Vogel</h4>
-        </div>
-        <div class="card">
-          <h1>10%</h1>
-          <h4>Wald</h4>
-        </div>
+        {state.optimierung.map((value, index) => (
+          <div class="card">
+            <h1>{value}%</h1>
+            <h5>{optArray[index]}</h5>
+          </div>
+        ))}
       </div>
 
       {/* Description 1 */}
@@ -386,31 +413,6 @@ export default function Home({ allPostsData }) {
       {/* end of slider-1 */}
       {/* end of description 1 */}
 
-      {/* Questions */}
-      <div id="questions" class="basic-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2>Got Questions? Call Us</h2>
-              <p class="p-heading">
-                Need information about our loaning conditions? Or just a loan
-                calculation? Call us! It's very easy to stop dreaming about the
-                things you want to do and turn them into reality with Cedo's
-                fast loans
-              </p>
-              <a class="btn-solid-reg page-scroll" href="tel:00817202212">
-                <i class="fas fa-phone"></i>+81 720 2212
-              </a>
-            </div>
-            {/* end of col */}
-          </div>
-          {/* end of row */}
-        </div>
-        {/* end of container */}
-      </div>
-      {/* end of basic-2 */}
-      {/* end of questions */}
-
       {/* About */}
       <div id="about" class="basic-3">
         <div class="container">
@@ -442,36 +444,10 @@ export default function Home({ allPostsData }) {
       <div class="footer">
         <div class="container">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-8">
               <div class="footer-col first">
-                <h5>About Cedo</h5>
-                <p class="p-small">
-                  We're passionate about offering the best financial services to
-                  our loyal customers
-                </p>
-              </div>
-            </div>
-            {/* end of col */}
-            <div class="col-md-4">
-              <div class="footer-col second">
-                <h5>Important Links</h5>
-                <p class="p-small">
-                  <a class="white" href="terms-conditions.html">
-                    Terms & Conditions
-                  </a>
-                  ,
-                  <a class="white" href="privacy-policy.html">
-                    Privacy Policy
-                  </a>
-                  ,
-                  <a class="white" href="#your-link">
-                    Institute Of Credit & Loans Control
-                  </a>
-                  ,{" "}
-                  <a class="white" href="#your-link">
-                    National Bank
-                  </a>
-                </p>
+                <h5>Gemeinwohl-Bilanz</h5>
+                <p class="p-small">Letztes Update: 15.11.2020</p>
               </div>
             </div>
             {/* end of col */}
@@ -525,8 +501,7 @@ export default function Home({ allPostsData }) {
           <div class="row">
             <div class="col-lg-12">
               <p class="p-small">
-                Copyright © 2020 <a href="https://inovatik.com">Inovatik</a> -
-                All rights reserved
+                Copyright © 2020 Thomas Schwab, Fabio Maienschein
               </p>
             </div>
             {/* end of col */}

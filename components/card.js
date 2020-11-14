@@ -1,4 +1,11 @@
-export default function Card({ category, heading, p, id }) {
+export default function Card({
+  value,
+  category,
+  heading,
+  p,
+  id,
+  handleChange,
+}) {
   return (
     <>
       <div class="card">
@@ -13,9 +20,11 @@ export default function Card({ category, heading, p, id }) {
           <div class="form-group">
             <div class="row d-flex justify-content-center align-items-center">
               <input
+                value={value}
+                onChange={handleChange}
                 id={`card-a-${id}`}
                 class="form-control-input"
-                placeholder="ha"
+                placeholder="0"
               ></input>
               <a class="btn-solid-reg popup-with-move-anim">Details</a>
             </div>

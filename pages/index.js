@@ -318,11 +318,32 @@ export default function Home({ allPostsData }) {
         </h3> */}
         <div id="score" class="card">
           <h3>
-            {state.aal1 + state.aal2 + state.aal3 * 2 + state.mal1} Punkte -{" "}
-            {(state.aal1 + state.aal2 + state.aal3 * 2) * 50} € -{" "}
+            {state.aal1 +
+              state.aal2 +
+              (state.aal3 + state.mal3) * 2 +
+              state.mal1 +
+              state.mal2}{" "}
+            Punkte -{" "}
+            {(state.aal1 +
+              state.aal2 +
+              (state.aal3 + state.mal3) * 2 +
+              state.mal1 +
+              state.mal2) *
+              50}{" "}
+            € -{" "}
             {(
-              ((state.aal1 + state.aal2 + state.aal3 * 2) * 50) /
-              (state.aal1 + state.aal2 + state.aal3)
+              ((state.aal1 +
+                state.aal2 +
+                (state.aal3 + state.mal3) * 2 +
+                state.mal1 +
+                state.mal2) *
+                50) /
+              (state.aal1 +
+                state.aal2 +
+                state.aal3 +
+                state.mal1 +
+                state.mal2 +
+                state.mal3)
             ).toFixed(2)}{" "}
             €/ha
           </h3>

@@ -1,21 +1,22 @@
-export default function Card({ heading, p, id }) {
+export default function Card({ category, heading, p, id }) {
   return (
     <>
       <div class="card">
         <img
-          class="card-image"
-          src="images/vector-card-1.svg"
+          class="card-image-top"
+          src={`images/${category}.jpg`}
           alt="alternative"
         />
         <div class="card-body">
           <h4 class="card-title">{heading}</h4>
-          <p>{p}</p>
+          <p class="card-text">{p}</p>
           <div class="form-group">
             <div class="row d-flex justify-content-center align-items-center">
-              <input id={`card-a-${id}`} class="form-control-input"></input>
-              <label class="label-control" for={`card-a-${id}`}>
-                ha
-              </label>
+              <input
+                id={`card-a-${id}`}
+                class="form-control-input"
+                placeholder="ha"
+              ></input>
               <a class="btn-solid-reg popup-with-move-anim">Details</a>
             </div>
           </div>

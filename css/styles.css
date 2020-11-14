@@ -231,9 +231,9 @@ a.white {
 .form-control-select {
   display: block; /* needed for proper display of the label in Firefox, IE, Edge */
   width: 100%;
-  padding-top: 1.0625rem;
+  padding-top: 0.0625rem;
   padding-bottom: 0.0625rem;
-  padding-left: 1.75rem;
+  padding-left: 1.5rem;
   border: 0.125rem solid #ddd;
   border-radius: 2rem;
   background-color: #fff;
@@ -868,7 +868,7 @@ input[type="checkbox"] {
 /*     06. Loan Options     */
 /****************************/
 .cards-1 {
-  padding-top: 6.75rem;
+  padding-top: 3.75rem;
   text-align: center;
 }
 
@@ -905,11 +905,20 @@ input[type="checkbox"] {
   margin-bottom: 1.25rem;
 }
 
-#options .card input {
+.cards-1 .card {
+  border: 1px solid lightgrey;
+  border-radius: 12px;
+}
+
+.card-image-top {
+  max-width: 100%;
+}
+
+.card input {
   max-width: 120px;
 }
 
-#options .card .btn-solid-reg {
+.card .btn-solid-reg {
   max-height: 40px;
 }
 

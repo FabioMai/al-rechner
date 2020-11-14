@@ -198,23 +198,7 @@ export default function Home({ allPostsData }) {
                   </div>
                 </li>
                 <li class="media">
-                  <div class="circle">2</div>
-                  <div class="media-body">
-                    <h4>
-                      <a class="page-scroll" href="#ausgang">
-                        Geplante Verbesserungen eintragen
-                      </a>
-                    </h4>
-                    <p>Welche Maßnahmen sind geplant?</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            {/* end of col */}
-            <div class="col-lg-6">
-              <ul class="list-unstyled li-space-lg second">
-                <li class="media">
-                  <div class="circle">3</div>
+                  <div class="circle">2b</div>
                   <div class="media-body">
                     <h4>Bilanz optimieren</h4>
                     <p>
@@ -223,8 +207,24 @@ export default function Home({ allPostsData }) {
                     </p>
                   </div>
                 </li>
+              </ul>
+            </div>
+            {/* end of col */}
+            <div class="col-lg-6">
+              <ul class="list-unstyled li-space-lg second">
                 <li class="media">
-                  <div class="circle">4</div>
+                  <div class="circle">2a</div>
+                  <div class="media-body">
+                    <h4>
+                      <a class="page-scroll" href="#massnahme">
+                        Geplante Verbesserungen eintragen
+                      </a>
+                    </h4>
+                    <p>Welche Maßnahmen sind geplant?</p>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="circle">3</div>
                   <div class="media-body">
                     <h4>Ergebnis exportieren</h4>
                     <p>
@@ -244,73 +244,161 @@ export default function Home({ allPostsData }) {
       {/* end of basic-1 */}
       {/* end of approval */}
 
-      {/* Ausgangssituation */}
-      <div id="ausgang" class="cards-1">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2>1) Ausgangssituation</h2>
-              <p class="p-heading">Erfasse hier die aktuelle Nutzung</p>
-            </div>
-            {/* end of col */}
-          </div>
-          {/* end of row */}
+      <div id="tabs" class="container">
+        <div class="row">
+          <div class="col-xs-12 ">
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a
+                  class="nav-item nav-link active"
+                  id="nav-home-tab"
+                  data-toggle="tab"
+                  href="#nav-home"
+                  role="tab"
+                  aria-controls="nav-home"
+                  aria-selected="true"
+                >
+                  <h3>1) Ausgangssituation</h3>
+                </a>
+                <a
+                  class="nav-item nav-link"
+                  id="nav-profile-tab"
+                  data-toggle="tab"
+                  href="#nav-profile"
+                  role="tab"
+                  aria-controls="nav-profile"
+                  aria-selected="false"
+                >
+                  <h3>2) Maßnahmen</h3>
+                </a>
+                <a
+                  class="nav-item nav-link"
+                  id="nav-contact-tab"
+                  data-toggle="tab"
+                  href="#nav-contact"
+                  role="tab"
+                  aria-controls="nav-contact"
+                  aria-selected="false"
+                >
+                  <h3>3) Export</h3>
+                </a>
+              </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="nav-home"
+                role="tabpanel"
+                aria-labelledby="nav-home-tab"
+              >
+                {/* Ausgangssituation */}
+                <div id="ausgang" class="cards-1">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h2>1) Ausgangssituation</h2>
+                        <p class="p-heading">
+                          Erfasse hier die aktuelle Nutzung
+                        </p>
+                      </div>
+                      {/* end of col */}
+                    </div>
+                    {/* end of row */}
 
-          <div class="row">
-            <div class="col-lg-12 d-flex flex-wrap">
-              {cards.map((card) => (
-                <Card
-                  name={`a${card.name}`}
-                  category={card.category}
-                  heading={card.heading}
-                  p={card.p}
-                  id={cards.indexOf(card)}
-                  handleChange={handleChange}
-                ></Card>
-              ))}
+                    <div class="row">
+                      <div class="col-lg-12 d-flex flex-wrap">
+                        {cards.map((card) => (
+                          <Card
+                            name={`a${card.name}`}
+                            category={card.category}
+                            heading={card.heading}
+                            p={card.p}
+                            id={cards.indexOf(card)}
+                            handleChange={handleChange}
+                          ></Card>
+                        ))}
+                      </div>
+                      {/* end of col */}
+                    </div>
+                    {/* end of row */}
+                  </div>
+                  {/* end of container */}
+                </div>
+                {/* end of cards-1 */}
+                {/* end of loan options */}
+              </div>
+              <div
+                class="tab-pane fade"
+                id="nav-profile"
+                role="tabpanel"
+                aria-labelledby="nav-profile-tab"
+              >
+                {/* Maßnahmen */}
+                <div id="massnahme" class="cards-1">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h2>2) Maßnahmen</h2>
+                        <p class="p-heading">
+                          Erfasse hier die geplanten Maßnahmen
+                        </p>
+                      </div>
+                      {/* end of col */}
+                    </div>
+                    {/* end of row */}
+
+                    <div class="row">
+                      <div class="col-lg-12 d-flex flex-wrap">
+                        {cards.map((card) => (
+                          <Card
+                            name={`m${card.name}`}
+                            category={card.category}
+                            heading={card.heading}
+                            p={card.p}
+                            id={cards.indexOf(card)}
+                            handleChange={handleChange}
+                          ></Card>
+                        ))}
+                      </div>
+                      {/* end of col */}
+                    </div>
+                    {/* end of row */}
+                  </div>
+                  {/* end of container */}
+                </div>
+                {/* end of cards-1 */}
+                {/* end of loan options */}
+              </div>
+              <div
+                class="tab-pane fade d-flex align-items-center"
+                id="nav-contact"
+                role="tabpanel"
+                aria-labelledby="nav-contact-tab"
+              >
+                <div class="container cards-1">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2>3) Export</h2>
+                      <p>
+                        Hier kannst du deine festgehaltenen Eingaben und die
+                        daraus errechneten Förderbeträge exportieren lassen.
+                      </p>
+                      <br></br>
+                      <a
+                        class="btn-solid-reg popup-with-move-anim"
+                        href="/Gemeinwohl-Bilanz.xslx"
+                        download
+                      >
+                        Exportieren
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            {/* end of col */}
           </div>
-          {/* end of row */}
         </div>
-        {/* end of container */}
       </div>
-      {/* end of cards-1 */}
-      {/* end of loan options */}
-
-      {/* Maßnahmen */}
-      <div id="massnahme" class="cards-1">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2>2) Maßnahmen</h2>
-              <p class="p-heading">Erfasse die geplanten Maßnahmen, um </p>
-            </div>
-            {/* end of col */}
-          </div>
-          {/* end of row */}
-
-          <div class="row">
-            <div class="col-lg-12 d-flex flex-wrap">
-              {cards.map((card) => (
-                <Card
-                  name={`m${card.name}`}
-                  category={card.category}
-                  heading={card.heading}
-                  p={card.p}
-                  id={cards.indexOf(card)}
-                  handleChange={handleChange}
-                ></Card>
-              ))}
-            </div>
-            {/* end of col */}
-          </div>
-          {/* end of row */}
-        </div>
-        {/* end of container */}
-      </div>
-      {/* end of cards-1 */}
-      {/* end of loan options */}
 
       <div id="fixed-footer">
         {/* <h3>

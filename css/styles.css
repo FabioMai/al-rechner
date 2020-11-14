@@ -877,11 +877,63 @@ input[type="checkbox"] {
   color: #f5eaf8;
 }
 
+/* Tabs */
+
+#tabs {
+  padding-top: 3rem;
+}
+
+#tabs nav h3 {
+  color: white;
+}
+
+#tabs nav > .nav.nav-tabs {
+  border: none;
+  color: #fff;
+  background: #171717;
+  border-radius: 0;
+}
+
+#tab snav > div a.nav-item.nav-link,
+#tabs nav > div a.nav-item.nav-link.active {
+  border: none;
+  padding: 18px 25px;
+  color: #fff;
+  background: #272e38;
+  border-radius: 0;
+}
+
+#tabs nav > div a.nav-item.nav-link.active:after {
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #309168;
+}
+#tabs .tab-content {
+  background: #fdfdfd;
+  line-height: 25px;
+  border: 1px solid #ddd;
+  border-top: 5px solid #309168;
+  border-bottom: 5px solid #309168;
+  padding: 30px 25px;
+}
+
+#tabs nav > div a.nav-item.nav-link:hover,
+#tabs nav > div a.nav-item.nav-link:focus {
+  border: none;
+  background: #309168;
+  color: #fff;
+  border-radius: 0;
+  transition: background 0.2s linear;
+}
+
 /****************************/
 /*     06. Loan Options     */
 /****************************/
 .cards-1 {
-  padding-top: 3.75rem;
+  padding-top: 2rem;
   text-align: center;
 }
 

@@ -1130,17 +1130,19 @@ input[type="checkbox"] {
   width: 100%;
 }
 
-#fixed-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 99;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  justify-content: center;
-  border-top: 3px solid #309168;
+@media (min-width: 768px) {
+  #fixed-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    border-top: 3px solid #309168;
+  }
 }
 
 /*****************************/
@@ -1695,6 +1697,7 @@ a:hover.back-to-top {
     background-color: transparent;
     box-shadow: none;
     transition: all 0.2s;
+    border-bottom: 2px solid white;
   }
 
   .navbar-custom .navbar-nav {

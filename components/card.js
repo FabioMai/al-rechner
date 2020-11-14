@@ -8,6 +8,7 @@ export default function Card({ name, category, heading, p, id, handleChange }) {
           alt="alternative"
         />
         <div class="card-body">
+          <br></br>
           <h4 class="card-title">{heading}</h4>
           <br></br>
           <div class="form-group">

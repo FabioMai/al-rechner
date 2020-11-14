@@ -227,6 +227,11 @@ a.white {
   font-weight: 700;
 }
 
+header .header-content .form-control-input {
+  padding-top: 1rem;
+  padding-left: 1.75rem;
+}
+
 .form-control-input,
 .form-control-select {
   display: block; /* needed for proper display of the label in Firefox, IE, Edge */
@@ -925,6 +930,11 @@ input[type="checkbox"] {
 /**************************************/
 /*     07. Loan Options Lightboxes    */
 /**************************************/
+
+#massnahme {
+  background-color: #e6fff4;
+}
+
 .lightbox-basic {
   position: relative;
   max-width: 62.5rem;
@@ -1109,6 +1119,12 @@ input[type="checkbox"] {
 
 .cards-2 .card .list-unstyled .media-body {
   margin-left: 0.25rem;
+}
+
+/* Fixed Footer*/
+#fixed-footer {
+  display: flex;
+  text-align: center;
 }
 
 /*****************************/

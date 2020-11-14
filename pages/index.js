@@ -211,7 +211,7 @@ export default function Home({ allPostsData }) {
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h2>Ausgangssituation</h2>
+              <h2>1) Ausgangssituation</h2>
               <p class="p-heading">todo Beschreibung?</p>
             </div>
             {/* end of col */}
@@ -243,7 +243,7 @@ export default function Home({ allPostsData }) {
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <h2>Maßnahmen</h2>
+              <h2>2) Maßnahmen</h2>
               <p class="p-heading">todo Beschreibung?</p>
             </div>
             {/* end of col */}
@@ -269,6 +269,17 @@ export default function Home({ allPostsData }) {
       </div>
       {/* end of cards-1 */}
       {/* end of loan options */}
+
+      <div id="fixed-footer">
+        <div class="card">
+          <h1>5%</h1>
+          <h4>Vogel</h4>
+        </div>
+        <div class="card">
+          <h1>10%</h1>
+          <h4>Wald</h4>
+        </div>
+      </div>
 
       {/* Description 1 */}
       <div id="description" class="slider-1">
@@ -405,19 +416,18 @@ export default function Home({ allPostsData }) {
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <h2>About Cedo</h2>
+              <h2>Über den Gemeinwohl-Bilanz Rechner</h2>
               <p class="p-heading">
-                We're passionate about offering the best financial services at
-                the lowest possible cost for the customer. We've been helping
-                people for more than 10 years and decided to put together the
-                this video
+                Dieses Projekt ensteht als Teil des Hackathons "Innovation
+                Challenge #FutureTech4Climate" als Teil der
+                Biodiversitäts-Challenge des Zentrum Digitalisierung Bayern.
               </p>
-              <div class="embed-responsive embed-responsive-16by9">
+              {/* <div class="embed-responsive embed-responsive-16by9">
                 <iframe
                   src="https://www.youtube.com/embed/Ey1lkwYGSC0"
                   allowfullscreen
                 ></iframe>
-              </div>
+              </div> */}
             </div>
             {/* end of col */}
           </div>
@@ -427,263 +437,6 @@ export default function Home({ allPostsData }) {
       </div>
       {/* end of basic-3 */}
       {/* end of about */}
-
-      {/* Testimonials */}
-      <div class="slider-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2>Customer Testimonials</h2>
-            </div>
-            {/* end of col */}
-          </div>
-          {/* end of row */}
-        </div>
-        {/* end of container */}
-        <div class="container">
-          <div class="row">
-            {/* Card Slider */}
-            <div class="swiper-container card-slider">
-              <div class="swiper-wrapper">
-                {/* Slide */}
-                <div class="swiper-slide">
-                  <div class="card">
-                    <img
-                      class="card-image rounded-circle"
-                      src="images/person-face-1.png"
-                      alt="alternative"
-                    />
-                    <div class="card-body">
-                      <p class="testimonial-text">
-                        Got a personal loan from Cedo and I am very happy with
-                        the conditions. I needed a good laptop for school and
-                        bought it on credit.
-                      </p>
-                      <p class="testimonial-author">Jude Thorn</p>
-                    </div>
-                  </div>
-                </div>
-                {/* end of swiper-slide */}
-                {/* end of slide */}
-
-                {/* Slide */}
-                <div class="swiper-slide">
-                  <div class="card">
-                    <img
-                      class="card-image rounded-circle"
-                      src="images/person-face-2.png"
-                      alt="alternative"
-                    />
-                    <div class="card-body">
-                      <p class="testimonial-text">
-                        Awesome conditions for the personal loan. I managed to
-                        buy the iPhone I always wanted with a credit from Cedo.
-                        Amazing!
-                      </p>
-                      <p class="testimonial-author">Roy Smith</p>
-                    </div>
-                  </div>
-                </div>
-                {/* end of swiper-slide */}
-                {/* end of slide */}
-
-                {/* Slide */}
-                <div class="swiper-slide">
-                  <div class="card">
-                    <img
-                      class="card-image rounded-circle"
-                      src="images/person-face-3.png"
-                      alt="alternative"
-                    />
-                    <div class="card-body">
-                      <p class="testimonial-text">
-                        I recommend Cedo's personal loan to everyone in need for
-                        some quick cash. I got out of a very tight situation
-                        thanks to their loans.
-                      </p>
-                      <p class="testimonial-author">Marsha Singer</p>
-                    </div>
-                  </div>
-                </div>
-                {/* end of swiper-slide */}
-                {/* end of slide */}
-
-                {/* Slide */}
-                <div class="swiper-slide">
-                  <div class="card">
-                    <img
-                      class="card-image rounded-circle"
-                      src="images/person-face-4.png"
-                      alt="alternative"
-                    />
-                    <div class="card-body">
-                      <p class="testimonial-text">
-                        It's been my life long dream to travel around the world
-                        but never had the financial resources to actually do it.
-                        Now it's possible!
-                      </p>
-                      <p class="testimonial-author">Lindsay Rune</p>
-                    </div>
-                  </div>
-                </div>
-                {/* end of swiper-slide */}
-                {/* end of slide */}
-
-                {/* Slide */}
-                <div class="swiper-slide">
-                  <div class="card">
-                    <img
-                      class="card-image rounded-circle"
-                      src="images/person-face-5.png"
-                      alt="alternative"
-                    />
-                    <div class="card-body">
-                      <p class="testimonial-text">
-                        My car stopped working exactly when I needed it the most
-                        so I had to take some desperate measures. Now I've
-                        bought a new car.
-                      </p>
-                      <p class="testimonial-author">Ronald Spice</p>
-                    </div>
-                  </div>
-                </div>
-                {/* end of swiper-slide */}
-                {/* end of slide */}
-
-                {/* Slide */}
-                <div class="swiper-slide">
-                  <div class="card">
-                    <img
-                      class="card-image rounded-circle"
-                      src="images/person-face-6.png"
-                      alt="alternative"
-                    />
-                    <div class="card-body">
-                      <p class="testimonial-text">
-                        I've been looking for a new house for about 5 years and
-                        when I found the right home it was Cedo that supported
-                        my decision.
-                      </p>
-                      <p class="testimonial-author">Ann Black</p>
-                    </div>
-                  </div>
-                </div>
-                {/* end of swiper-slide */}
-                {/* end of slide */}
-              </div>
-              {/* end of swiper-wrapper */}
-
-              {/* Add Pagination */}
-              <div class="swiper-pagination"></div>
-              {/* end of add pagination */}
-            </div>
-            {/* end of swiper-container */}
-            {/* end of card slider */}
-          </div>
-          {/* end of row */}
-        </div>
-        {/* end of container */}
-      </div>
-      {/* end of slider-2 */}
-      {/* end of testimonials */}
-
-      {/* Contact */}
-      <div id="contact" class="form">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2>Contact Info</h2>
-              <p class="p-heading">
-                Address: 22 Innovative Area, San Francisco, Bay Area, CA 94043,
-                USA <br />
-                Phone: +81 720 2212, Email:
-                <a href="mailto:office@cedoloans.com">office@cedoloans.com</a>,
-                Web: <a href="#your-link">www.cedoloans.com</a>
-              </p>
-            </div>
-            {/* end of col */}
-          </div>
-          {/* end of row */}
-
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="map-responsive">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.507640204439!3d37.757814996609724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sro!4v1498231462606"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-            {/* end of col */}
-            <div class="col-lg-6">
-              {/* Contact Form */}
-              <form id="contactForm" data-toggle="validator" data-focus="false">
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control-input"
-                    id="cname"
-                    required
-                  />
-                  <label class="label-control" for="cname">
-                    Name
-                  </label>
-                  <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group">
-                  <input
-                    type="email"
-                    class="form-control-input"
-                    id="cemail"
-                    required
-                  />
-                  <label class="label-control" for="cemail">
-                    Email
-                  </label>
-                  <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group">
-                  <textarea
-                    class="form-control-textarea"
-                    id="cmessage"
-                    required
-                  ></textarea>
-                  <label class="label-control" for="cmessage">
-                    Your message
-                  </label>
-                  <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group checkbox">
-                  <input
-                    type="checkbox"
-                    id="cterms"
-                    value="Agreed-to-Terms"
-                    required
-                  />
-                  I have read and agree to Ciel's
-                  <a href="privacy-policy.html">Privacy Policy</a> and
-                  <a href="terms-conditions.html">Terms Conditions</a>
-                  <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="form-control-submit-button">
-                    Submit
-                  </button>
-                </div>
-                <div class="form-message">
-                  <div id="cmsgSubmit" class="h3 text-center hidden"></div>
-                </div>
-              </form>
-              {/* end of contact form */}
-            </div>
-            {/* end of col */}
-          </div>
-          {/* end of row */}
-        </div>
-        {/* end of container */}
-      </div>
-      {/* end of form */}
-      {/* end of contact */}
 
       {/* Footer */}
       <div class="footer">

@@ -28,6 +28,9 @@ export default function Home({ allPostsData }) {
     "Wasserschutz",
   ];
   const [state, setState] = useState({
+    punkte: 0,
+    euro: 0,
+    euroha: 0,
     aal1: "0",
     aal2: "1",
     mal1: "",
@@ -300,6 +303,14 @@ export default function Home({ allPostsData }) {
       {/* end of loan options */}
 
       <div id="fixed-footer">
+        {/* <h3>
+          {state.punkte} Punkte - {state.euro} € - {state.euroha} €/ha
+        </h3> */}
+        <div id="score" class="card">
+          <h3>
+            {state.punkte} Punkte - {state.euro} € - {state.euroha} €/ha
+          </h3>
+        </div>
         {state.optimierung.map((value, index) => (
           <div class="card">
             <h1>{value}%</h1>

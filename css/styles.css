@@ -1121,6 +1121,11 @@ input[type="checkbox"] {
 }
 
 /* Fixed Footer*/
+
+#score {
+  width: 100%;
+}
+
 #fixed-footer {
   position: fixed;
   left: 0;
@@ -1128,6 +1133,7 @@ input[type="checkbox"] {
   z-index: 99;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   text-align: center;
   justify-content: center;
   border-top: 3px solid #309168;

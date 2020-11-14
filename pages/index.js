@@ -31,18 +31,18 @@ export default function Home({ allPostsData }) {
     punkte: 0,
     euro: 0,
     euroha: 0,
-    aal1: "0",
-    aal2: "1",
-    mal1: "",
-    mal2: "",
+    aal1: 0,
+    aal2: 0,
+    aal3: 0,
     optimierung: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
     setState((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: parseInt(value),
     }));
+    console.table(state);
   };
   const cards = getCards();
 
@@ -147,9 +147,9 @@ export default function Home({ allPostsData }) {
                   <div class="help-block with-errors"></div>
                 </div> */}
                   <div class="form-group">
-                    <button type="submit" class="form-control-submit-button">
+                    <a class="btn-solid-reg page-scroll" href="#approval">
                       Los geht's!
-                    </button>
+                    </a>
                   </div>
                   <div class="form-message">
                     <div id="gmsgSubmit" class="h3 text-center hidden"></div>
@@ -186,7 +186,11 @@ export default function Home({ allPostsData }) {
                 <li class="media">
                   <div class="circle">1</div>
                   <div class="media-body">
-                    <h4>Ausgangssituation bestimmen</h4>
+                    <h4>
+                      <a class="page-scroll" href="#ausgang">
+                        Ausgangssituation bestimmen
+                      </a>
+                    </h4>
                     <p>
                       Trage die aktuellen Maßnahmen mit der Größe der Fläche
                       ein.
@@ -196,7 +200,11 @@ export default function Home({ allPostsData }) {
                 <li class="media">
                   <div class="circle">2</div>
                   <div class="media-body">
-                    <h4>Geplante Verbesserungen eintragen</h4>
+                    <h4>
+                      <a class="page-scroll" href="#ausgang">
+                        Geplante Verbesserungen eintragen
+                      </a>
+                    </h4>
                     <p>Welche Maßnahmen sind geplant?</p>
                   </div>
                 </li>
@@ -252,7 +260,7 @@ export default function Home({ allPostsData }) {
             <div class="col-lg-12 d-flex flex-wrap">
               {cards.map((card) => (
                 <Card
-                  value={state[card.name]}
+                  name={card.name}
                   category={card.category}
                   heading={card.heading}
                   p={card.p}
@@ -308,7 +316,11 @@ export default function Home({ allPostsData }) {
         </h3> */}
         <div id="score" class="card">
           <h3>
-            {state.punkte} Punkte - {state.euro} € - {state.euroha} €/ha
+            {state.aal1 + state.aal2 + state.aal3 * 2} Punkte -{" "}
+            {(state.aal1 + state.aal2 + state.aal3 * 2) * 50} € -{" "}
+            {((state.aal1 + state.aal2 + state.aal3 * 2) * 50) /
+              (state.aal1 + state.aal2 + state.aal3)}{" "}
+            €/ha
           </h3>
         </div>
         {state.optimierung.map((value, index) => (

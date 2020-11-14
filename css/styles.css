@@ -826,6 +826,10 @@ input[type="checkbox"] {
 /***********************/
 /*    05. Approval     */
 /***********************/
+#approval a {
+  color: white;
+}
+
 .basic-1 {
   padding-top: 6.75rem;
   padding-bottom: 5rem;

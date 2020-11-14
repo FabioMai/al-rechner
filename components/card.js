@@ -1,11 +1,4 @@
-export default function Card({
-  value,
-  category,
-  heading,
-  p,
-  id,
-  handleChange,
-}) {
+export default function Card({ name, category, heading, p, id, handleChange }) {
   return (
     <>
       <div class="card">
@@ -16,17 +9,22 @@ export default function Card({
         />
         <div class="card-body">
           <h4 class="card-title">{heading}</h4>
-          <p class="card-text">{p}</p>
+          <br></br>
           <div class="form-group">
             <div class="row d-flex justify-content-center align-items-center">
               <input
-                value={value}
                 onChange={handleChange}
                 id={`card-a-${id}`}
                 class="form-control-input"
                 placeholder="0"
+                name={name}
               ></input>
-              <a class="btn-solid-reg popup-with-move-anim">Details</a>
+              <a
+                class="btn-solid-reg popup-with-move-anim"
+                href="/massnahmen/al-1"
+              >
+                Details
+              </a>
             </div>
           </div>
         </div>

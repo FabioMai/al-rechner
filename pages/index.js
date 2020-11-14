@@ -28,12 +28,12 @@ export default function Home({ allPostsData }) {
     "Wasserschutz",
   ];
   const [state, setState] = useState({
-    punkte: 0,
-    euro: 0,
-    euroha: 0,
     aal1: 0,
     aal2: 0,
     aal3: 0,
+    mal1: 0,
+    mal2: 0,
+    mal3: 0,
     optimierung: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   });
   const handleChange = (e) => {
@@ -250,7 +250,7 @@ export default function Home({ allPostsData }) {
           <div class="row">
             <div class="col-md-12">
               <h2>1) Ausgangssituation</h2>
-              <p class="p-heading">todo Beschreibung?</p>
+              <p class="p-heading">Erfasse hier die aktuelle Nutzung</p>
             </div>
             {/* end of col */}
           </div>
@@ -260,7 +260,7 @@ export default function Home({ allPostsData }) {
             <div class="col-lg-12 d-flex flex-wrap">
               {cards.map((card) => (
                 <Card
-                  name={card.name}
+                  name={`a${card.name}`}
                   category={card.category}
                   heading={card.heading}
                   p={card.p}
@@ -284,7 +284,7 @@ export default function Home({ allPostsData }) {
           <div class="row">
             <div class="col-md-12">
               <h2>2) Maßnahmen</h2>
-              <p class="p-heading">todo Beschreibung?</p>
+              <p class="p-heading">Erfasse die geplanten Maßnahmen, um </p>
             </div>
             {/* end of col */}
           </div>
@@ -294,10 +294,12 @@ export default function Home({ allPostsData }) {
             <div class="col-lg-12 d-flex flex-wrap">
               {cards.map((card) => (
                 <Card
+                  name={`m${card.name}`}
                   category={card.category}
                   heading={card.heading}
                   p={card.p}
                   id={cards.indexOf(card)}
+                  handleChange={handleChange}
                 ></Card>
               ))}
             </div>
@@ -316,10 +318,12 @@ export default function Home({ allPostsData }) {
         </h3> */}
         <div id="score" class="card">
           <h3>
-            {state.aal1 + state.aal2 + state.aal3 * 2} Punkte -{" "}
+            {state.aal1 + state.aal2 + state.aal3 * 2 + state.mal1} Punkte -{" "}
             {(state.aal1 + state.aal2 + state.aal3 * 2) * 50} € -{" "}
-            {((state.aal1 + state.aal2 + state.aal3 * 2) * 50) /
-              (state.aal1 + state.aal2 + state.aal3)}{" "}
+            {(
+              ((state.aal1 + state.aal2 + state.aal3 * 2) * 50) /
+              (state.aal1 + state.aal2 + state.aal3)
+            ).toFixed(2)}{" "}
             €/ha
           </h3>
         </div>

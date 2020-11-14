@@ -767,6 +767,11 @@ input[type="checkbox"] {
   padding-bottom: 4rem;
 }
 
+.header .header-content.details {
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+}
+
 .header h1 {
   margin-bottom: 1.25rem;
   color: #f5eaf8;

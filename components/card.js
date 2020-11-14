@@ -22,7 +22,7 @@ export default function Card({ name, category, heading, p, id, handleChange }) {
               ></input>
               <a
                 class="btn-solid-reg popup-with-move-anim"
-                href="/massnahmen/al-1"
+                href="/massnahmen/al-5"
               >
                 Details
               </a>

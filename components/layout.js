@@ -11,7 +11,7 @@ export default function Layout({ children, allPostsData }) {
             {/* SEO Meta Tags */}
             <meta
             name="description"
-            content="AL Rechner"
+            content="Gemeinwohl-Bilanz"
             />
             <meta name="author" content="Fabio Maienschein" />
 
@@ -31,7 +31,7 @@ export default function Layout({ children, allPostsData }) {
             <meta property="og:type" content="article" />
 
             {/* Website Title */}
-            <title>AL-Rechner</title>
+            <title>GEMEINWOHL-BILANZ</title>
 
             {/* Styles */}
             <link
@@ -56,7 +56,7 @@ export default function Layout({ children, allPostsData }) {
             {/* Navigation */}
             <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             {/* Text Logo - Use this if you don't have a graphic logo */}
-            <a class="navbar-brand logo-text" href="index.html">AL-Rechner</a>
+            <a class="navbar-brand logo-text" href="/">GEMEINWOHL-BILANZ</a>
 
             {/* Image Logo */}
             {/* <a class="navbar-brand logo-image" href="index.html"
@@ -86,15 +86,8 @@ export default function Layout({ children, allPostsData }) {
                     >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#approval">Rechner</a>
+                    <a class="nav-link page-scroll" href="#approval">Start</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#options">Maßnahmen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#description">Erträge</a>
-                </li>
-
                 {/* Dropdown Menu */}
                 <li class="nav-item dropdown">
                     <a
@@ -104,7 +97,7 @@ export default function Layout({ children, allPostsData }) {
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    >Details</a
+                    >Maßnahmen</a
                     >
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {allPostsData.map(({ id, title }) => (
@@ -118,6 +111,9 @@ export default function Layout({ children, allPostsData }) {
                     </div>
                 </li>
                 {/* end of dropdown menu */}
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#description">Optimierung</a>
+                </li>                
 
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="#contact">Kontakt</a>

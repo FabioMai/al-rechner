@@ -137,7 +137,7 @@ a.white {
   border: 0.125rem solid #ef4a73;
   border-radius: 2rem;
   background-color: #ef4a73;
-  color: #fff;
+  color: #fff !important;
   font: 700 0.875rem/0 "Open Sans", sans-serif;
   text-decoration: none;
   transition: all 0.2s;
@@ -903,6 +903,14 @@ input[type="checkbox"] {
 
 .cards-1 .card-body p {
   margin-bottom: 1.25rem;
+}
+
+#options .card input {
+  max-width: 120px;
+}
+
+#options .card .btn-solid-reg {
+  max-height: 40px;
 }
 
 /**************************************/

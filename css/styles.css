@@ -758,6 +758,10 @@ input[type="checkbox"] {
   color: white;
 }
 
+#header p {
+  color: white;
+}
+
 .special-label {
   margin: 0.5rem;
 }

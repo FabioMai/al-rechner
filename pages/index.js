@@ -63,9 +63,12 @@ export default function Home({ allPostsData }) {
               <div class="col-lg-6">
                 <div class="text-container">
                   <h1>Berechnung der Gemeinwohl- prämie</h1>
-                  {/* <p class="p-large">
-                    Allgemeine Beschreibung über das Prinzip und die Zuteilung
-                  </p> */}
+                  <p>
+                    basierend auf dem Modell „Gemeinwohlprämie“ des Deutschen
+                    Verbandes für Landschaftspflege (
+                    <a href="www.dvl.org">www.dvl.org</a>)
+                  </p>
+                  <img src="images/logo-dvl.jpg" width="350"></img>
                 </div>
               </div>
               {/* end of col */}

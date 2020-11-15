@@ -24,38 +24,24 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
-  const data = [
-    { x: 0, y: 8 },
-    { x: 1, y: 5 },
-    { x: 2, y: 4 },
-    { x: 3, y: 9 },
-    { x: 4, y: 1 },
-    { x: 5, y: 7 },
-    { x: 6, y: 6 },
-    { x: 7, y: 3 },
-    { x: 8, y: 2 },
-    { x: 9, y: 0 },
-  ];
-  const optArray = [
-    "Vögel",
-    "Säugetiere",
-    "Reptilien",
-    "Amphibien",
-    "Insekten",
-    "Bestäuber",
-    "Wildpflanzen Acker",
-    "Wildpflanzen Grünland",
-    "Klimaschutz",
-    "Wasserschutz",
-  ];
   const [state, setState] = useState({
+    acker: 0,
+    gruen: 0,
+    sonder: 0,
     aal1: 0,
     aal2: 0,
     aal3: 0,
+    aal5: 0,
     mal1: 0,
     mal2: 0,
     mal3: 0,
-    optimierung: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    mal5: 0,
+    klima1: 0,
+    klima2: 0,
+    wasser1: 0,
+    wasser2: 0,
+    bio1: 0,
+    bio2: 0,
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -96,6 +82,8 @@ export default function Home({ allPostsData }) {
                       type="text"
                       class="form-control-input"
                       id="gname"
+                      onChange={handleChange}
+                      name="acker"
                       required
                     />
                     <label class="label-control" for="gname">
@@ -108,6 +96,8 @@ export default function Home({ allPostsData }) {
                       type="text"
                       class="form-control-input"
                       id="gphone"
+                      onChange={handleChange}
+                      name="gruen"
                       required
                     />
                     <label class="label-control" for="gphone">
@@ -120,6 +110,8 @@ export default function Home({ allPostsData }) {
                       type="text"
                       class="form-control-input"
                       id="gemail"
+                      onChange={handleChange}
+                      name="sonder"
                       required
                     />
                     <label class="label-control" for="gemail">
@@ -127,46 +119,6 @@ export default function Home({ allPostsData }) {
                     </label>
                     <div class="help-block with-errors"></div>
                   </div>
-                  {/* <div class="form-group">
-                  <select class="form-control-select" id="gselect" required>
-                    <option class="select-option" value="" disabled selected>
-                      Maßnahme
-                    </option>
-                    <option class="select-option" value="Personal Loan">
-                      Personal Loan
-                    </option>
-                    <option class="select-option" value="Vehicle Loan">
-                      Vehicle Loan
-                    </option>
-                    <option class="select-option" value="House Loan">
-                      House Loan
-                    </option>
-                    <option class="select-option" value="Student Loan">
-                      Student Loan
-                    </option>
-                    <option class="select-option" value="Travel Loan">
-                      Travel Loan
-                    </option>
-                    <option class="select-option" value="StartUp Loan">
-                      StartUp Loan
-                    </option>
-                  </select>
-                  <div class="help-block with-errors"></div>
-                </div> */}
-                  {/* <div class="form-group checkbox">
-                  <input
-                    type="checkbox"
-                    id="gterms"
-                    value="Agreed-to-Terms"
-                    required
-                  />I have read and agree to Cedo's
-                  <a class="white" href="privacy-policy.html">Privacy Policy</a>
-                  and
-                  <a class="white" href="terms-conditions.html"
-                    >Terms Conditions</a
-                  >
-                  <div class="help-block with-errors"></div>
-                </div> */}
                   <div class="form-group">
                     <a class="btn-solid-reg page-scroll" href="#approval">
                       Los geht's!
@@ -431,6 +383,7 @@ export default function Home({ allPostsData }) {
             <h4>
               {state.aal1 +
                 state.aal2 +
+                (state.aal5 + state.mal5) * 10 +
                 (state.aal3 + state.mal3) * 2 +
                 state.mal1 +
                 state.mal2}{" "}
@@ -439,6 +392,7 @@ export default function Home({ allPostsData }) {
             <h4>
               {(state.aal1 +
                 state.aal2 +
+                (state.aal5 + state.mal5) * 10 +
                 (state.aal3 + state.mal3) * 2 +
                 state.mal1 +
                 state.mal2) *
@@ -449,6 +403,7 @@ export default function Home({ allPostsData }) {
               {(
                 ((state.aal1 +
                   state.aal2 +
+                  (state.aal5 + state.mal5) * 10 +
                   (state.aal3 + state.mal3) * 2 +
                   state.mal1 +
                   state.mal2) *
@@ -456,9 +411,11 @@ export default function Home({ allPostsData }) {
                 (state.aal1 +
                   state.aal2 +
                   state.aal3 +
+                  state.aal5 +
                   state.mal1 +
                   state.mal2 +
-                  state.mal3)
+                  state.mal3 +
+                  state.mal5)
               ).toFixed(2)}{" "}
               €/ha
             </h4>
@@ -477,23 +434,101 @@ export default function Home({ allPostsData }) {
               <YAxis />
               <HorizontalBarSeries
                 data={[
-                  { y: "Wirkung auf Biodiversität", x: 0 },
-                  { y: "Wirkung auf Wasserschutz", x: 0 },
-                  { y: "Wirkung auf Klimaschutz", x: 0 },
+                  {
+                    y: "Wirkung auf Biodiversität",
+                    x:
+                      (10 * state.aal5 * (state.aal5 / 3)) /
+                      (((122 / 3) *
+                        (state.acker + state.gruen + state.sonder)) /
+                        100),
+                  },
+                  {
+                    y: "Wirkung auf Wasserschutz",
+                    x:
+                      (10 * state.aal5 * (state.aal5 / 3)) /
+                      (((122 / 3) *
+                        (state.acker + state.gruen + state.sonder)) /
+                        100),
+                  },
+                  {
+                    y: "Wirkung auf Klimaschutz",
+                    x:
+                      (10 * state.aal5 * (state.aal5 / 3)) /
+                      (((122 / 3) *
+                        (state.acker + state.gruen + state.sonder)) /
+                        100),
+                  },
                 ]}
               />
               <HorizontalBarSeries
                 data={[
-                  { y: "Wirkung auf Biodiversität", x: 0 },
-                  { y: "Wirkung auf Wasserschutz", x: 0 },
-                  { y: "Wirkung auf Klimaschutz", x: 0 },
+                  {
+                    y: "Wirkung auf Biodiversität",
+                    x:
+                      (10 * state.mal5 * (state.mal5 / 3)) /
+                      (((122 / 3) *
+                        (state.acker + state.gruen + state.sonder)) /
+                        100),
+                  },
+                  {
+                    y: "Wirkung auf Wasserschutz",
+                    x:
+                      (10 * state.mal5 * (state.mal5 / 3)) /
+                      (((122 / 3) *
+                        (state.acker + state.gruen + state.sonder)) /
+                        100),
+                  },
+                  {
+                    y: "Wirkung auf Klimaschutz",
+                    x:
+                      (10 * state.mal5 * (state.mal5 / 3)) /
+                      (((122 / 3) *
+                        (state.acker + state.gruen + state.sonder)) /
+                        100),
+                  },
                 ]}
               />
               <HorizontalBarSeries
                 data={[
-                  { y: "Wirkung auf Biodiversität", x: 100 },
-                  { y: "Wirkung auf Wasserschutz", x: 100 },
-                  { y: "Wirkung auf Klimaschutz", x: 100 },
+                  {
+                    y: "Wirkung auf Biodiversität",
+                    x:
+                      100 -
+                      (10 * state.aal5 * (state.aal5 / 3)) /
+                        (((122 / 3) *
+                          (state.acker + state.gruen + state.sonder)) /
+                          100) -
+                      (10 * state.mal5 * (state.mal5 / 3)) /
+                        (((122 / 3) *
+                          (state.acker + state.gruen + state.sonder)) /
+                          100),
+                  },
+                  {
+                    y: "Wirkung auf Wasserschutz",
+                    x:
+                      100 -
+                      (10 * state.aal5 * (state.aal5 / 3)) /
+                        (((122 / 3) *
+                          (state.acker + state.gruen + state.sonder)) /
+                          100) -
+                      (10 * state.mal5 * (state.mal5 / 3)) /
+                        (((122 / 3) *
+                          (state.acker + state.gruen + state.sonder)) /
+                          100),
+                  },
+                  {
+                    y: "Wirkung auf Klimaschutz",
+                    x:
+                      100 -
+                      (10 * state.aal5 * (state.aal5 / 3)) /
+                        (((122 / 3) *
+                          (state.acker + state.gruen + state.sonder)) /
+                          100) -
+                      (10 * state.mal5 * (state.mal5 / 3)) /
+                        (((122 / 3) *
+                          (state.acker + state.gruen + state.sonder)) /
+                          100),
+                  },
                 ]}
               />
             </XYPlot>

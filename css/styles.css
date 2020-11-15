@@ -1183,8 +1183,14 @@ input[type="checkbox"] {
 
 /* Fixed Footer*/
 
-#score {
+.score {
   width: 100%;
+}
+
+#bilanz {
+  margin: 1rem;
+  border: 1px solid gray;
+  border-radius: 12px;
 }
 
 @media (min-width: 768px) {

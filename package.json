@@ -12,6 +12,7 @@
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-vis": "^1.11.7",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1"
   }

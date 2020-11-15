@@ -1,6 +1,15 @@
 import Layout from "../components/layout";
 import Card from "../components/card";
 import { useState } from "react";
+import {
+  XYPlot,
+  XAxis,
+  YAxis,
+  VerticalGridLines,
+  HorizontalGridLines,
+  HorizontalBarSeries,
+  HorizontalBarSeriesCanvas,
+} from "react-vis";
 
 import { getSortedPostsData } from "../lib/posts";
 import { getCards } from "../lib/cards";
@@ -15,6 +24,18 @@ export async function getStaticProps() {
 }
 
 export default function Home({ allPostsData }) {
+  const data = [
+    { x: 0, y: 8 },
+    { x: 1, y: 5 },
+    { x: 2, y: 4 },
+    { x: 3, y: 9 },
+    { x: 4, y: 1 },
+    { x: 5, y: 7 },
+    { x: 6, y: 6 },
+    { x: 7, y: 3 },
+    { x: 8, y: 2 },
+    { x: 9, y: 0 },
+  ];
   const optArray = [
     "Vögel",
     "Säugetiere",
@@ -56,9 +77,9 @@ export default function Home({ allPostsData }) {
               <div class="col-lg-6">
                 <div class="text-container">
                   <h1>Berechnung der Gemeinwohl- prämie</h1>
-                  <p class="p-large">
+                  {/* <p class="p-large">
                     Allgemeine Beschreibung über das Prinzip und die Zuteilung
-                  </p>
+                  </p> */}
                 </div>
               </div>
               {/* end of col */}
@@ -187,9 +208,7 @@ export default function Home({ allPostsData }) {
                   <div class="circle">1</div>
                   <div class="media-body">
                     <h4>
-                      <a class="page-scroll" href="#ausgang">
-                        Ausgangssituation bestimmen
-                      </a>
+                      <u>Ausgangssituation bestimmen</u>
                     </h4>
                     <p>
                       Trage die aktuellen Maßnahmen mit der Größe der Fläche
@@ -200,7 +219,9 @@ export default function Home({ allPostsData }) {
                 <li class="media">
                   <div class="circle">2b</div>
                   <div class="media-body">
-                    <h4>Bilanz optimieren</h4>
+                    <h4>
+                      <u>Bilanz optimieren</u>
+                    </h4>
                     <p>
                       Dir ist Artenvielfalt, Klima- und Wasserschutz wichtig?
                       Optimiere die Einstellungen und lass dich überraschen.
@@ -216,9 +237,7 @@ export default function Home({ allPostsData }) {
                   <div class="circle">2a</div>
                   <div class="media-body">
                     <h4>
-                      <a class="page-scroll" href="#massnahme">
-                        Geplante Verbesserungen eintragen
-                      </a>
+                      <u>Geplante Verbesserungen eintragen</u>
                     </h4>
                     <p>Welche Maßnahmen sind geplant?</p>
                   </div>
@@ -226,7 +245,9 @@ export default function Home({ allPostsData }) {
                 <li class="media">
                   <div class="circle">3</div>
                   <div class="media-body">
-                    <h4>Ergebnis exportieren</h4>
+                    <h4>
+                      <u>Ergebnis exportieren</u>
+                    </h4>
                     <p>
                       Nutze dein Ergebnis für die Beantragung der Förderung und
                       für die Lohnsteuer.
@@ -404,44 +425,80 @@ export default function Home({ allPostsData }) {
         {/* <h3>
           {state.punkte} Punkte - {state.euro} € - {state.euroha} €/ha
         </h3> */}
-        <div id="score" class="card">
-          <h3>
-            {state.aal1 +
-              state.aal2 +
-              (state.aal3 + state.mal3) * 2 +
-              state.mal1 +
-              state.mal2}{" "}
-            Punkte -{" "}
-            {(state.aal1 +
-              state.aal2 +
-              (state.aal3 + state.mal3) * 2 +
-              state.mal1 +
-              state.mal2) *
-              50}{" "}
-            € -{" "}
-            {(
-              ((state.aal1 +
+        <div class="card score d-flex flex-row">
+          <div id="bilanz" class="col-lg-4 d-flex flex-column">
+            <h2>Zwischenbilanz</h2>
+            <h4>
+              {state.aal1 +
+                state.aal2 +
+                (state.aal3 + state.mal3) * 2 +
+                state.mal1 +
+                state.mal2}{" "}
+              Punkte
+            </h4>
+            <h4>
+              {(state.aal1 +
                 state.aal2 +
                 (state.aal3 + state.mal3) * 2 +
                 state.mal1 +
                 state.mal2) *
-                50) /
-              (state.aal1 +
-                state.aal2 +
-                state.aal3 +
-                state.mal1 +
-                state.mal2 +
-                state.mal3)
-            ).toFixed(2)}{" "}
-            €/ha
-          </h3>
-        </div>
-        {state.optimierung.map((value, index) => (
-          <div class="card">
-            <h1>{value}%</h1>
-            <h5>{optArray[index]}</h5>
+                50}{" "}
+              €
+            </h4>
+            <h4>
+              {(
+                ((state.aal1 +
+                  state.aal2 +
+                  (state.aal3 + state.mal3) * 2 +
+                  state.mal1 +
+                  state.mal2) *
+                  50) /
+                (state.aal1 +
+                  state.aal2 +
+                  state.aal3 +
+                  state.mal1 +
+                  state.mal2 +
+                  state.mal3)
+              ).toFixed(2)}{" "}
+              €/ha
+            </h4>
           </div>
-        ))}
+          <div class="col-lg-8">
+            <XYPlot
+              margin={{ left: 200 }}
+              width={700}
+              height={200}
+              stackBy="x"
+              yType="ordinal"
+            >
+              <VerticalGridLines />
+              <HorizontalGridLines />
+              <XAxis />
+              <YAxis />
+              <HorizontalBarSeries
+                data={[
+                  { y: "Wirkung auf Biodiversität", x: 0 },
+                  { y: "Wirkung auf Wasserschutz", x: 0 },
+                  { y: "Wirkung auf Klimaschutz", x: 0 },
+                ]}
+              />
+              <HorizontalBarSeries
+                data={[
+                  { y: "Wirkung auf Biodiversität", x: 0 },
+                  { y: "Wirkung auf Wasserschutz", x: 0 },
+                  { y: "Wirkung auf Klimaschutz", x: 0 },
+                ]}
+              />
+              <HorizontalBarSeries
+                data={[
+                  { y: "Wirkung auf Biodiversität", x: 100 },
+                  { y: "Wirkung auf Wasserschutz", x: 100 },
+                  { y: "Wirkung auf Klimaschutz", x: 100 },
+                ]}
+              />
+            </XYPlot>
+          </div>
+        </div>
       </div>
 
       {/* About */}

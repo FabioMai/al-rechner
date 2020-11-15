@@ -376,7 +376,7 @@ export default function Home({ allPostsData }) {
         </h3> */}
         <div class="card score d-flex flex-row">
           <div id="bilanz" class="col-lg-4 d-flex flex-column">
-            <h2>Zwischenbilanz</h2>
+            <h2>Bilanz</h2>
             <h4>
               {state.aal1 +
                 state.aal2 +
@@ -417,7 +417,7 @@ export default function Home({ allPostsData }) {
               €/ha
             </h4>
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-8 d-flex flex-row">
             <XYPlot
               margin={{ left: 200 }}
               width={700}
@@ -529,6 +529,11 @@ export default function Home({ allPostsData }) {
                 ]}
               />
             </XYPlot>
+            <div class="d-flex justify-content-center align-content-center flex-column">
+              <p class="tuerkis">türkis: Maßnahmenfläche alt</p>
+              <p class="hellblau">hellblau: Maßnahmenfläche neu</p>
+              <p class="dunkelblau">dunkelblau: Gesamtfläche</p>
+            </div>
           </div>
         </div>
       </div>

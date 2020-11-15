@@ -762,6 +762,18 @@ input[type="checkbox"] {
   color: white;
 }
 
+#fixed-footer .tuerkis {
+  color: rgb(18, 147, 154);
+}
+
+#fixed-footer .hellblau {
+  color: rgb(121, 199, 227);
+}
+
+#fixed-footer .dunkelblau {
+  color: rgb(26, 49, 119);
+}
+
 .special-label {
   margin: 0.5rem;
 }

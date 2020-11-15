@@ -78,6 +78,7 @@ export default function Home({ allPostsData }) {
                   data-focus="false"
                 >
                   <div class="form-group">
+                    <label for="gname">Ackerland (in ha)</label>
                     <input
                       type="text"
                       class="form-control-input"
@@ -86,12 +87,10 @@ export default function Home({ allPostsData }) {
                       name="acker"
                       required
                     />
-                    <label class="label-control" for="gname">
-                      Ackerland (in ha)
-                    </label>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
+                    <label for="gphone">Grünland (in ha)</label>
                     <input
                       type="text"
                       class="form-control-input"
@@ -100,12 +99,10 @@ export default function Home({ allPostsData }) {
                       name="gruen"
                       required
                     />
-                    <label class="label-control" for="gphone">
-                      Grünland (in ha)
-                    </label>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
+                    <label for="gemail">Sonderkulturen (in ha)</label>
                     <input
                       type="text"
                       class="form-control-input"
@@ -114,9 +111,6 @@ export default function Home({ allPostsData }) {
                       name="sonder"
                       required
                     />
-                    <label class="label-control" for="gemail">
-                      Sonderkulturen (in ha)
-                    </label>
                     <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">

@@ -17,9 +17,10 @@ export default function Card({ name, category, heading, p, id, handleChange }) {
                 onChange={handleChange}
                 id={`card-a-${id}`}
                 class="form-control-input"
-                placeholder="0"
+                placeholder="Fläche"
                 name={name}
               ></input>
+              <label class="special-label">ha</label>
               <a
                 class="btn-solid-reg popup-with-move-anim"
                 href="/massnahmen/al-5"
